@@ -1,10 +1,10 @@
-## LuxLang: A Comprehensive Design Proposal
+## NeoLux: A Comprehensive Design Proposal
 
 ### **1. Language Overview**
 
-**Name:** LuxLang (LL)
+**Name:** NeoLux (NLX)
 
-**Purpose:** LuxLang is designed to combine the rigor of strong static typing with the flexibility of dynamic typing, featuring an elegant syntax that enhances both readability and functionality. It supports a dual execution environment—local VM and web browser—providing versatility in various development scenarios.
+**Purpose:** NeoLux is designed to combine the rigor of strong static typing with the flexibility of dynamic typing, featuring an elegant syntax that enhances both readability and functionality. It supports a dual execution environment—local VM and web browser—providing versatility in various development scenarios.
 
 ---
 
@@ -28,7 +28,7 @@
 
 **Example Code:**
 
-```luxlang
+```neolux
 + This is a comment +
 
 function greet(name) ~
@@ -139,7 +139,7 @@ main() *
 
 **Web Browser Execution Runtime:**
 
-- **Compilation:** Convert LuxLang code into HTML-C for web execution.
+- **Compilation:** Convert NeoLux code into HTML-C for web execution.
 - **JavaScript:** Handle interactions and API calls within the browser.
 
 **Dynamic Virtual Local Database (DVLD):**
@@ -197,70 +197,70 @@ function sendData(value) {
 
 ---
 
-**LuxLang** is designed to offer an advanced, aesthetically pleasing programming experience, integrating static and dynamic typing, sophisticated syntax, and versatile execution environments to meet the needs of modern developers.
+**NeoLux** is designed to offer an advanced, aesthetically pleasing programming experience, integrating static and dynamic typing, sophisticated syntax, and versatile execution environments to meet the needs of modern developers.
 
 
 
 
-For LuxLang, creating official file extensions involves designing extensions that reflect the language's unique features and syntax. Here are some suggested file extensions and their intended uses:
+For NeoLux, creating official file extensions involves designing extensions that reflect the language's unique features and syntax. Here are some suggested file extensions and their intended uses:
 
-### 1. **.lux**
+### 1. **.nlux**
 
 - **Description:** Primary file extension for LuxLang source code files.
 - **Usage:** This extension is used for files containing LuxLang code.
 - **Example Filename:** `example.lux`
 
-### 2. **.luxlib**
+### 2. **.nluxlib**
 
-- **Description:** Extension for LuxLang library files.
-- **Usage:** Used for files that define LuxLang libraries or modules that can be imported and reused.
-- **Example Filename:** `math_operations.luxlib`
+- **Description:** Extension for NeoLux library files.
+- **Usage:** Used for files that define NeoLux libraries or modules that can be imported and reused.
+- **Example Filename:** `math_operations.NeoLux`
 
-### 3. **.luxpkg**
+### 3. **.nluxpkg**
 
-- **Description:** Extension for LuxLang package files.
-- **Usage:** Used for packaging LuxLang projects, including dependencies and metadata. This can be useful for distribution.
-- **Example Filename:** `luxlang_project.luxpkg`
+- **Description:** Extension for NeoLux package files.
+- **Usage:** Used for packaging NeoLux projects, including dependencies and metadata. This can be useful for distribution.
+- **Example Filename:** `neolux_project.nluxpkg`
 
-### 4. **.luxdoc**
+### 4. **.nluxdoc**
 
-- **Description:** Extension for documentation files related to LuxLang.
-- **Usage:** Used for documentation files written in Markdown or other formats explaining LuxLang code, libraries, or tools.
-- **Example Filename:** `guide.luxdoc`
+- **Description:** Extension for documentation files related to NeoLux.
+- **Usage:** Used for documentation files written in Markdown or other formats explaining NeoLux code, libraries, or tools.
+- **Example Filename:** `guide.nluxdoc`
 
-### 5. **.luxconf**
+### 5. **.nluxconf**
 
 - **Description:** Extension for configuration files used by LuxLang tools and compilers.
-- **Usage:** Contains settings and configurations for compiling, running, or managing LuxLang projects.
+- **Usage:** Contains settings and configurations for compiling, running, or managing NeoLux projects.
 - **Example Filename:** `compiler_settings.luxconf`
 
-### 6. **.luxbin**
+### 6. **.nluxbin**
 
-- **Description:** Extension for compiled LuxLang binaries.
-- **Usage:** Used for binary files generated from LuxLang source code after compilation.
-- **Example Filename:** `program.luxbin`
+- **Description:** Extension for compiled NeoLux binaries.
+- **Usage:** Used for binary files generated from NeoLux source code after compilation.
+- **Example Filename:** `program.nluxbin`
 
-### 7. **.luxhtml**
+### 7. **.nluxhtml**
 
-- **Description:** Extension for LuxLang code compiled to HTML.
-- **Usage:** Used for LuxLang code that has been converted into HTML for web execution.
-- **Example Filename:** `web_interface.luxhtml`
+- **Description:** Extension for NeoLux code compiled to HTML.
+- **Usage:** Used for NeoLux code that has been converted into HTML for web execution.
+- **Example Filename:** `web_interface.nluxhtml`
 
-### 8. **.luxjvm**
+### 8. **.nluxjvm**
 
 - **Description:** Extension for LuxLang code compiled for a local virtual machine.
-- **Usage:** Files intended to be executed in the LuxLang VM environment.
-- **Example Filename:** `local_execution.luxjvm`
+- **Usage:** Files intended to be executed in the NeoLux VM environment.
+- **Example Filename:** `local_execution.nluxjvm`
 
 ### Example File Usage
 
-- **Source Code File:** `main.lux`
-- **Library File:** `utilities.luxlib`
-- **Package File:** `my_project.luxpkg`
-- **Documentation File:** `README.luxdoc`
-- **Configuration File:** `settings.luxconf`
-- **Compiled Binary File:** `output.luxbin`
-- **HTML Output File:** `interface.luxhtml`
-- **Local VM File:** `execution.luxjvm`
+- **Source Code File:** `main.nlux`
+- **Library File:** `utilities.nluxlib`
+- **Package File:** `my_project.nluxpkg`
+- **Documentation File:** `README.nluxdoc`
+- **Configuration File:** `settings.nluxconf`
+- **Compiled Binary File:** `output.nluxbin`
+- **HTML Output File:** `interface.nluxhtml`
+- **Local VM File:** `execution.nluxjvm`
 
 These extensions are designed to reflect the LuxLang ecosystem and ensure clear differentiation between various types of files used in development, distribution, and execution.
