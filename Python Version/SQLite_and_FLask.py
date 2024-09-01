@@ -67,26 +67,29 @@ async def start_websocket_server():
 # Flask application setup
 app = Flask(__name__)
 
-@app.route('/api/data', methods=['GET', 'POST'])
-def handle_data():
-    if request.method == 'POST':
-        data = request.json
+@app.route('/api/data', methods=['POST'])
+def handle_data_post():
+    data = request.json
+    if 'value' in data:
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO data (value) VALUES (?)", (data['value'],))
         conn.commit()
         conn.close()
         return jsonify({'status': 'success'}), 201
-    else:
-        conn = sqlite3.connect('database.db')
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM data")
-        rows = cursor.fetchall()
-        conn.close()
-        return jsonify(rows), 200
+    return jsonify({'status': 'error', 'message': 'Invalid data'}), 400
+
+@app.route('/api/data', methods=['GET'])
+def handle_data_get():
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM data")
+    rows = cursor.fetchall()
+    conn.close()
+    return jsonify(rows), 200
 
 def run_flask_app():
-    app.run(debug=True, use_reloader=False)
+    app.run(port=5001, debug=True, use_reloader=False)
 
 if __name__ == '__main__':
     # Start the WebSocket server in a separate thread
