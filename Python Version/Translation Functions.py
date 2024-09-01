@@ -22,9 +22,30 @@ def translate_for_loop(match):
     body = match[3].replace('\n', '\n    ').strip()
     return f'for {var_name} in {iterable}:\n    {body}'
 
-def translate_print_statement(match):
-    content = match[1]
-    return f'print({content})'
+def translate_if_statement(match):
+    condition = match[1]
+    body = match[2].replace('\n', '\n    ').strip()
+    return f'if {condition}:\n    {body}'
+
+def translate_else_if_statement(match):
+    condition = match[1]
+    body = match[2].replace('\n', '\n    ').strip()
+    return f'elif {condition}:\n    {body}'
+
+def translate_else_statement(match):
+    body = match[1].replace('\n', '\n    ').strip()
+    return f'else:\n    {body}'
+
+def translate_while_loop(match):
+    condition = match[1]
+    body = match[2].replace('\n', '\n    ').strip()
+    return f'while {condition}:\n    {body}'
+
+def translate_try_catch(match):
+    try_body = match[1].replace('\n', '\n    ').strip()
+    exception = match[2]
+    catch_body = match[3].replace('\n', '\n    ').strip()
+    return f'try:\n    {try_body}\nexcept {exception}:\n    {catch_body}'
 
 def translate_comments(match):
     return f'# {match[0][1:-1]}'
