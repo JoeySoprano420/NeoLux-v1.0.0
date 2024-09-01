@@ -1,0 +1,21 @@
+import distutils.core
+
+distutils.core.setup(
+    name='NeoLux',
+    version='1.0.0',
+    author='Joey Soprano',
+    author_email='violetaurac@icloud.com',
+    description='NeoLux: A refined programming language with elegant syntax and dynamic features',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    url='https://github.com/JoeySoprano420/NeoLux',
+    packages=['neolux'],  # This should be the directory containing your NeoLux modules
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'License :: Other/Proprietary License',  # Change based on your actual license
+        'Operating System :: OS Independent',
+    ],
+    license='MODIFIED QSRLC License',
+    license_files=('LICENSE.md',),
+    python_requires='>=3.6',
+)
