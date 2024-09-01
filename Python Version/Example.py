@@ -14,6 +14,3 @@ end +
 
 main() *
 '''
-
-python_code = translate_neolux_to_python(neolux_code)
-print(python_code)
