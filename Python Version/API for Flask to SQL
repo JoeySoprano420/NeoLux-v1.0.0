@@ -1,0 +1,43 @@
+from flask import Flask, request, jsonify
+import sqlite3
+
+app = Flask(__name__)
+
+def init_db():
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute('''CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY, value TEXT)''')
+    conn.commit()
+    conn.close()
+
+@app.route('/api/data', methods=['GET', 'POST'])
+def handle_data():
+    if request.method == 'POST':
+        data = request.json
+        if 'value' not in data:
+            return jsonify({'error': 'Invalid data'}), 400
+        try:
+            conn = sqlite3.connect('database.db')
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO data (value) VALUES (?)", (data['value'],))
+            conn.commit()
+        except sqlite3.Error as e:
+            return jsonify({'error': str(e)}), 500
+        finally:
+            conn.close()
+        return jsonify({'status': 'success'}), 201
+    else:
+        try:
+            conn = sqlite3.connect('database.db')
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM data")
+            rows = cursor.fetchall()
+        except sqlite3.Error as e:
+            return jsonify({'error': str(e)}), 500
+        finally:
+            conn.close()
+        return jsonify(rows), 200
+
+if __name__ == '__main__':
+    init_db()
+    app.run(debug=True)
