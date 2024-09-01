@@ -31,16 +31,20 @@ LuxLang is an elegantly designed, strongly statically typed compiled language th
 **Example Code:**
 
 ```luxlang
-function factorial(n) ~
-    if n <= 1 ~
-        return 1 *
-    else ~
-        return n * factorial(n - 1) *
++ This is a comment +
+
+function greet(name) ~
+    print("Hello, ", name) *
+end +
+
+function main() ~
+    let names = ["Alice", "Bob", "Charlie"] *
+    for name in names ~
+        greet(name) *
     end ~
 end +
 
-let result = factorial(5) *
-print("Factorial of 5 is ", result) *
+main() *
 ```
 
 **Grammar:**
