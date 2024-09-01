@@ -3,7 +3,7 @@ import subprocess
 
 def package_project():
     """
-    Creates a distribution package for LuxLang.
+    Creates a distribution package for NeoLux.
     """
     subprocess.run(["python", "setup.py", "sdist", "bdist_wheel"], check=True)
 
