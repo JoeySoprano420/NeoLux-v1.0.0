@@ -1,6 +1,6 @@
-import distutils.core
+from setuptools import setup, find_packages
 
-distutils.core.setup(
+setup(
     name='NeoLux',
     version='1.0.0',
     author='Joey Soprano',
@@ -9,13 +9,21 @@ distutils.core.setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/JoeySoprano420/NeoLux',
-    packages=['neolux'],  # This should be the directory containing your NeoLux modules
+    packages=find_packages(),  # Automatically finds all packages in the directory
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: Other/Proprietary License',  # Change based on your actual license
+        'License :: Other/Proprietary License',  # Adjust based on your actual license
         'Operating System :: OS Independent',
     ],
     license='MODIFIED QSRLC License',
     license_files=('LICENSE.md',),
     python_requires='>=3.6',
+    entry_points={
+        'console_scripts': [
+            'neolux-cli=neolux.cli:main',  # Replace with your actual CLI module and function
+        ],
+    },
+    install_requires=[
+        # List any dependencies here
+    ],
 )
