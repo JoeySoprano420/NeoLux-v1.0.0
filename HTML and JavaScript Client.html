@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket with DLVD Interaction</title>
+</head>
+<body>
+    <h1>WebSocket Client with DLVD Interaction</h1>
+    <p>Enter a value and send it to the server. The server will interact with the DLVD and return the result.</p>
+
+    <input type="text" id="dataInput" placeholder="Enter value" />
+    <button onclick="sendData()">Send Data</button>
+
+    <p><strong>Response from DLVD:</strong> <span id="response"></span></p>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:5000');
+
+        socket.onopen = function(event) {
+            console.log('WebSocket is connected.');
+        };
+
+        socket.onmessage = function(event) {
+            console.log('Received data from DLVD:', event.data);
+            document.getElementById('response').innerText = event.data;
+        };
+
+        function sendData() {
+            const value = document.getElementById('dataInput').value;
+            if (value) {
+                socket.send(JSON.stringify({ value: value }));
+                console.log('Sent data:', value);
+            } else {
+                console.log('Please enter a value before sending.');
+            }
+        }
+    </script>
+</body>
+</html>
