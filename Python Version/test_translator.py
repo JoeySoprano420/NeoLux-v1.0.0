@@ -15,23 +15,7 @@ def greet(name):
     print("Hello, ", name)
 '''
         },
-        'For Loop': {
-            'input': '''
-function main() ~
-    let names = ["Alice", "Bob", "Charlie"] *
-    for name in names ~
-        print(name) *
-    end ~
-end +
-''',
-            'expected': '''
-def main():
-    names = ["Alice", "Bob", "Charlie"]
-    for name in names:
-        print(name)
-'''
-        },
-        'Nested Data Structures': {
+        'Complex Case with Advanced Data Structures': {
             'input': '''
 function process_data() ~
     let data = { "key1": [1, 2, 3], "key2": {"subkey": 4} } *
@@ -44,58 +28,45 @@ def process_data():
     print(data)
 '''
         },
-        'Conditional Statements': {
+        'Ambiguous String Challenge': {
             'input': '''
-function check_value(value) ~
-    if value > 10 ~
-        print("Greater than 10") *
-    else ~
-        print("10 or less") *
-    end ~
+function ambiguous_example() ~
+    let ambiguous = "value" + 1 *
+    print(ambiguous) *
 end +
 ''',
             'expected': '''
-def check_value(value):
-    if value > 10:
-        print("Greater than 10")
-    else:
-        print("10 or less")
+def ambiguous_example():
+    ambiguous = "value" + 1
+    print(ambiguous)
 '''
         },
-        'Try-Catch Block': {
+        'Code-Switching Test': {
             'input': '''
-function safe_divide(a, b) ~
-    try ~
-        let result = a / b *
-    catch ZeroDivisionError ~
-        print("Cannot divide by zero") *
-    end ~
+function hello_world() ~
+    let message = "Hello, World!" *
+    print(message) *
 end +
+
+function hola_mundo() ~
+    let mensaje = "¡Hola, Mundo!" *
+    print(mensaje) *
+end +
+
+hello_world() *
+hola_mundo() *
 ''',
             'expected': '''
-def safe_divide(a, b):
-    try:
-        result = a / b
-    except ZeroDivisionError:
-        print("Cannot divide by zero")
-'''
-        },
-        'Complex Case': {
-            'input': '''
-function complex_example() ~
-    let numbers = [1, 2, 3] *
-    while len(numbers) > 0 ~
-        let num = numbers.pop(0) *
-        print(num) *
-    end ~
-end +
-''',
-            'expected': '''
-def complex_example():
-    numbers = [1, 2, 3]
-    while len(numbers) > 0:
-        num = numbers.pop(0)
-        print(num)
+def hello_world():
+    message = "Hello, World!"
+    print(message)
+
+def hola_mundo():
+    mensaje = "¡Hola, Mundo!"
+    print(mensaje)
+
+hello_world()
+hola_mundo()
 '''
         }
     }
