@@ -1,6 +1,6 @@
 import sqlite3
 import numpy as np
-from qsi import QuantumStateIntelligence
+from neo_lux import QuantumIntelligence
 
 class DynamicLocalVirtualDatabase:
     def __init__(self, db_path):
@@ -39,14 +39,16 @@ class DynamicLocalVirtualDatabase:
 class IntegratedSystem:
     def __init__(self, db_path):
         self.dlvd = DynamicLocalVirtualDatabase(db_path)
-        self.qsi = QuantumStateIntelligence()
+        self.qi = QuantumIntelligence()
 
     def update_and_predict(self, table_name, query):
         data = self.dlvd.query_data(query)
         predictions = []
         for row in data:
-            prediction, state = self.qsi.process_data(np.array(row))
-            predictions.append((row, prediction, state))
+            # Adjust row to match QuantumIntelligence input requirements
+            formatted_data = np.array(row)
+            prediction = self.qi.make_decision(formatted_data.tolist())
+            predictions.append((row, prediction))
         return predictions
 
     def add_data_and_predict(self, table_name, data):
@@ -56,3 +58,18 @@ class IntegratedSystem:
 
     def close(self):
         self.dlvd.close()
+
+# Example usage
+if __name__ == "__main__":
+    db_path = 'path_to_your_database.db'
+    integrated_system = IntegratedSystem(db_path)
+    
+    # Create table (example)
+    integrated_system.dlvd.create_table('example_table', {'id': 'INTEGER PRIMARY KEY', 'value': 'REAL'})
+    
+    # Insert data (example)
+    data = {'value': 42.0}
+    integrated_system.add_data_and_predict('example_table', data)
+    
+    # Close database connection
+    integrated_system.close()
