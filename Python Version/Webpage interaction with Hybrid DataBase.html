@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket with DLVD Interaction</title>
+    <title>WebSocket with HybridDatabase Interaction</title>
 </head>
 <body>
-    <h1>WebSocket Client with DLVD Interaction</h1>
-    <p>Enter a value and send it to the server. The server will interact with the DLVD and return the result.</p>
+    <h1>WebSocket Client with HybridDatabase Interaction</h1>
+    <p>Enter a value and send it to the server. The server will interact with the HybridDatabase and return the result.</p>
 
     <input type="text" id="dataInput" placeholder="Enter value" />
     <button onclick="sendData()">Send Data</button>
 
-    <p><strong>Response from DLVD:</strong> <span id="response"></span></p>
+    <p><strong>Response from Server:</strong> <span id="response"></span></p>
 
     <script>
         const socket = new WebSocket('ws://localhost:5000');
@@ -22,7 +22,7 @@
         };
 
         socket.onmessage = function(event) {
-            console.log('Received data from DLVD:', event.data);
+            console.log('Received data from server:', event.data);
             document.getElementById('response').innerText = event.data;
         };
 
