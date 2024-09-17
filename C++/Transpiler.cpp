@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -112,19 +113,17 @@ function main() ~
     let names = ["Alice", "Bob", "Charlie"] *
     for name in names ~
         greet(name) *
-    end ~
-end +
-
-main() *
-)";
+    end
+    )";
 
     try {
         std::string cpp_code = translate_neolux_to_cpp(neolux_code);
         std::cout << cpp_code << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
     }
 
     return 0;
 }
+```
+
